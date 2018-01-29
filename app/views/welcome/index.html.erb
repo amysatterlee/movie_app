@@ -1,2 +1,18 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+<% if current_user %>
+  <h3>Welcome: <%= current_user.email %></h3>
+<% else %>
+  <div class="jumbotron">
+    <h2>Welcome to the Family Scrapbook</h2>
+    <p class="lead">
+      Sign up to share photos, movies, and more
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-lg-1">
+      <p>
+        <%= link_to 'Sign up', new_user_session_path, class: 'btn btn-primary sign-up' %>
+      </p>
+    </div>
+  </div>
+<% end %>
